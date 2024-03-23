@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  q2a-web:
+    #    build:
+    #      context: ./
+    #      dockerfile: q2a.dockerfile
+    image: mara14/q2a-web:latest
+    ports:
+      - "9891:80"
+    environment:
+      QA_DB_USER: "${QA_DB_USER}"
+      QA_DB_PASS: "${QA_DB_PASS}"
+      QA_DB_NAME: "${QA_DB_NAME}"
+    restart: always
+    networks:
+      - q2a-net
+
+  mysqldb:
+    image: mysql:5
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_DATABASE: "${QA_DB_NAME}"
+      MYSQL_USER: "${QA_DB_USER}"
+      MYSQL_PASSWORD: "${QA_DB_PASS}"
+    volumes:
+      - mysqldb_data:/var/lib/mysql
+    networks:
+      - q2a-net
+
+networks:
+  q2a-net:
+    driver: overlay
+volumes:
+  mysqldb_data:
