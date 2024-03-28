@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.32.0 (765fde254)
+  labels:
+    io.kompose.service: q2a-web
+  name: q2a-web
+spec:
+  type: NodePort
+  ports:
+    - name: "9891"
+      port: 9891
+      targetPort: 80
+      #nodePort: 31891 #Not sure with cloud configuration of external IP:port
+  selector:
+    io.kompose.service: q2a-web
