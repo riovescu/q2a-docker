@@ -59,7 +59,7 @@ replicaset.apps/q2a-web-5b5c55754b   1         1         1       42s
 ```
 
 To recognize URL host:port, use the ```service/q2a-web``` port (here is 32514) and get the cluster external IP. In case
-of minicube use
+of minicube use:
 
 ```
 $minikube ip
@@ -73,4 +73,4 @@ $kubectl logs replicaset.apps/mysqldb-5c598f7654 -n epc-dev |grep "ROOT PASSW"
 2024-03-28 21:20:02+00:00 [Note] [Entrypoint]: GENERATED ROOT PASSWORD: <your unique hash>
 ```
 
-Your service is accessible on URL ```http://192.168.49.2:32514/q2a/index.php``` by values from example above.
+Your service is accessible on URL: ```http://192.168.49.2:32514/q2a/index.php``` by values from example above.
