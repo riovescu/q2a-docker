@@ -1,5 +1,5 @@
 #!/bin/bash
 
-export QA_DB_USER=qa_admin
-export QA_DB_PASS=qa_pass
-export QA_DB_NAME=qa_db_name
+export QA_DB_USER=qaadmin
+export QA_DB_PASS=qa_p@ssw0rd
+export QA_DB_NAME=qa

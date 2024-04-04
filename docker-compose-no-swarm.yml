@@ -2,9 +2,10 @@ version: '3.8'
 
 services:
   q2a-web:
-    #    build:
-    #      context: ./
-    #      dockerfile: q2a.dockerfile
+    # To build from a Dockerfile uncomment the following lines and adjust accordingly.
+    # build:
+    #   context: ./
+    #   dockerfile: q2a.dockerfile
     image: riovescu/q2a-web:latest
     ports:
       - "9891:80"
@@ -31,6 +32,11 @@ services:
 
 networks:
   q2a-net:
-    driver: overlay
+    # In Docker Compose for local development, the default driver is fine. 
+    # The overlay driver is specific to Swarm and is not needed here.
+    # Removed the `driver: overlay` line.
+
 volumes:
   mysqldb_data:
+    # If you need specific options for the volume, you can specify them here.
+    # Otherwise, this declaration ensures the volume is managed by Docker.
